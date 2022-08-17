@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QuakdLTmnpEL/xWev3MNsPM00TSTb1CBHCwOSen2akBQCB/DYr7aP4bZ7V8/bIpJNFf2IaioqqgfQ0Gfpx5aRQ==",
+  "dgSpecHash": "xWV0iJG8X5ZhHYB/CJToZiX9PcaIGkjqHQUgqM355Mieb/x5PKadJ5vao9u6O8DPmPZnh359jfnuJLqOElVBQg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
+  "projectFilePath": "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kennedy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Kennedy\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",

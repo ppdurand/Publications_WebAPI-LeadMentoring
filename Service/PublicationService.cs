@@ -16,10 +16,10 @@ public class PublicationService
 
     //get
 
-    // public IEnumerable<Publication> GetPublications()
-    // {
-        
-    // }
+    public IEnumerable<Publication> GetPublication()
+    {
+        return _publicationrepository.Get();
+    }
 
     // post
 

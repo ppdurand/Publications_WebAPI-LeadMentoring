@@ -17,11 +17,6 @@ public class BaseRepository : IBaseRepository
         throw new NotImplementedException();
     }
 
-    public IEnumerable<E> Get<E>(E entity) where E : class
-    {
-        throw new NotImplementedException();
-    }
-
     public void Post<E>(E entity) where E : class
     {
         _context.Add<E>(entity);

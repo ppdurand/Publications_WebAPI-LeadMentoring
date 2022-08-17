@@ -29,10 +29,11 @@ public class PublicationConfig : IEntityTypeConfiguration<Publication>
             .HasColumnType("longtext");
 
         builder.Property(prop => prop.CreationDate)
-            .HasColumnName("CreationDate")
-            .HasColumnType("DATETIME");
+            .IsRequired()
+            .HasColumnName("CreationDate");
         
         builder.Property(prop => prop.MaxComments)
+            .IsRequired()
             .HasColumnName("MaxCOmments")
             .HasColumnType("int");
 

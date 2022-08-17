@@ -16,4 +16,9 @@ public class PublicationRepository : BaseRepository, IPublicationRepository
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<Publication> Get()
+    {
+        return _context.Publication?.ToList();
+    }
 }

@@ -16,6 +16,13 @@ public class PublicationController : ControllerBase
         _publicationservice = new PublicationService(publicationrepository);
     }
 
+    [HttpGet]
+
+    public IEnumerable<Publication> GetPublication()
+    {
+        return _publicationservice.GetPublication();
+    }
+
     [HttpPost]
     public string PostPublication([FromBody] Publication publication)
     {
