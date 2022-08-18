@@ -17,7 +17,6 @@ public class PublicationController : ControllerBase
     }
 
     [HttpGet]
-
     public IEnumerable<Publication> GetPublication()
     {
         return _publicationservice.GetPublication();
@@ -27,5 +26,17 @@ public class PublicationController : ControllerBase
     public string PostPublication([FromBody] Publication publication)
     {
         return _publicationservice.PostPublication(publication);
+    }
+
+    [HttpDelete]
+    public string DeletePublication([FromBody] int id)
+    {
+        return _publicationservice.DeletePublication(id);
+    }
+
+    [HttpPut]
+    public string UpdatePublication([FromBody] int id)
+    {
+        return _publicationservice.UpdatePublication(id);
     }
 }

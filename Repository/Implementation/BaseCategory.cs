@@ -14,7 +14,8 @@ public class BaseRepository : IBaseRepository
 
     public void Delete<E>(E entity) where E : class
     {
-        throw new NotImplementedException();
+        _context.Remove<E>(entity);
+        SaveChanges();
     }
 
     public void Post<E>(E entity) where E : class
@@ -25,7 +26,8 @@ public class BaseRepository : IBaseRepository
 
     public void Put<E>(E entity) where E : class
     {
-        throw new NotImplementedException();
+        _context.Update<E>(entity);
+        SaveChanges();
     }
 
     public bool SaveChanges()

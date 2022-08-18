@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using publication.Context;
 using publication.Models;
 
@@ -21,4 +22,10 @@ public class PublicationRepository : BaseRepository, IPublicationRepository
     {
         return _context.Publication?.ToList();
     }
+
+    public Publication GetById(int id)
+    {
+        return _context.Publication?.FirstOrDefault(pub => pub.Id == id)!;
+    }
+
 }
