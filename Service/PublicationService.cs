@@ -41,10 +41,8 @@ public class PublicationService
 
     //update
 
-    public string UpdatePublication(int id)
+    public string UpdatePublication(Publication publication)
     {
-        Publication publication = _publicationrepository.GetById(id);
-        if (publication == null) return "Id inválido";
         _publicationrepository.Put(publication);
         return "Publicação alterada";
     }

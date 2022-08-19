@@ -34,9 +34,10 @@ public class PublicationController : ControllerBase
         return _publicationservice.DeletePublication(id);
     }
 
-    [HttpPut]
-    public string UpdatePublication([FromBody] int id)
+    [HttpPut("{id:int}")]
+    public string UpdatePublication(int id, [FromBody] Publication publication)
     {
-        return _publicationservice.UpdatePublication(id);
+        if(id != publication.Id) return "Id não encontrada";
+        return _publicationservice.UpdatePublication(publication);
     }
 }

@@ -13,14 +13,9 @@ public class PublicationRepository : BaseRepository, IPublicationRepository
         _context = context;
     }
 
-    public Publication GetByInitial()
-    {
-        throw new NotImplementedException();
-    }
-
     public IEnumerable<Publication> Get()
     {
-        return _context.Publication?.ToList();
+        return _context.Publication?.ToList()!;
     }
 
     public Publication GetById(int id)
