@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using publication.Models;
@@ -36,6 +37,5 @@ public class PublicationConfig : IEntityTypeConfiguration<Publication>
             .IsRequired()
             .HasColumnName("MaxCOmments")
             .HasColumnType("int");
-
     }
 }
