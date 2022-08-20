@@ -15,6 +15,7 @@ builder.Services.AddSwaggerGen();
 //Injeção de dependencia
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IPublicationRepository , PublicationRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
 string mySqlConnection = builder.Configuration.GetConnectionString("connectDeafultMysql");
 builder.Services.AddDbContext<PublicationContext>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));

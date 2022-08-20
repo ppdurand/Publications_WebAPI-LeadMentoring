@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj": {}
+    "c:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj": {
+    "c:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
+        "projectUniqueName": "c:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
         "projectName": "Publications_WebAPI-LeadMentoring",
-        "projectPath": "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
+        "projectPath": "c:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
         "packagesPath": "C:\\Users\\Kennedy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\obj\\",
+        "outputPath": "c:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kennedy\\AppData\\Roaming\\NuGet\\NuGet.Config",
