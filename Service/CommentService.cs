@@ -32,8 +32,9 @@ public class CommentService
         return "Comentário Deletado";
     }
 
-    public string UpdateComment(Comment comment)
+    public string UpdateComment(int id, Comment comment)
     {
+        if(id != comment.CommentId) return "id inválido";
         _commentrepository.Put(comment);
         return "Comentário alterado";
     }
