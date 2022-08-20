@@ -1,4 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
+using Microsoft.EntityFrameworkCore;
 using publication.Context;
 using publication.Models;
 
@@ -20,7 +20,7 @@ public class PublicationRepository : BaseRepository, IPublicationRepository
 
     public Publication GetById(int id)
     {
-        return _context.Publication?.FirstOrDefault(pub => pub.Id == id)!;
+        return _context.Publication?.Include(x => x.Comments) .FirstOrDefault(pub => pub.Id == id)!;
     }
 
 }

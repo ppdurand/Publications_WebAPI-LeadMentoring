@@ -40,4 +40,10 @@ public class PublicationController : ControllerBase
         if(id != publication.Id) return "Id não encontrada";
         return _publicationservice.UpdatePublication(publication);
     }
+
+    [HttpGet("{id:int}")]
+    public Publication DetailsPublication(int id)
+    {
+        return _publicationservice.DetailsPublication(id);
+    }
 }

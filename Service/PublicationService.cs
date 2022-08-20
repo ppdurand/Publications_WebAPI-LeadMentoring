@@ -46,4 +46,9 @@ public class PublicationService
         _publicationrepository.Put(publication);
         return "Publicação alterada";
     }
+    
+    public Publication DetailsPublication(int id)
+    {
+        return _publicationrepository.GetById(id);
+    }
 }
