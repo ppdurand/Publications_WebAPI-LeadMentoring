@@ -15,4 +15,9 @@ public class CommentRepository : BaseRepository, ICommentRepository
     {
         return _context.Comment?.ToList()!;
     }
+
+    public Comment GetById(int id)
+    {
+        return _context.Comment?.FirstOrDefault(com => com.CommentId == id)!;
+    }
 }
