@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using publication.Repository;
 using publication.Service;
 using publication.Models;
+using AutoMapper;
+using publication.Dto;
 
 namespace publication.Controllers;
 
@@ -12,13 +14,13 @@ namespace publication.Controllers;
 public class CommentController : ControllerBase
 {
     private readonly CommentService _commentservice;
-    public CommentController(ICommentRepository commentrepository)
+    public CommentController(ICommentRepository commentrepository, IMapper mapper)
     {
-        _commentservice = new CommentService(commentrepository);
+        _commentservice = new CommentService(commentrepository, mapper);
     }
 
     [HttpGet]
-    public IEnumerable<Comment> ListComment()
+    public IEnumerable<CommentDto> ListComment()
     {
         return _commentservice.GetComments();
     }

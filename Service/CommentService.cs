@@ -1,4 +1,6 @@
 using System.Security.AccessControl;
+using AutoMapper;
+using publication.Dto;
 using publication.Models;
 using publication.Repository;
 
@@ -7,15 +9,18 @@ namespace publication.Service;
 public class CommentService
 {
     private readonly ICommentRepository _commentrepository;
+    private readonly IMapper _mapper;
 
-    public CommentService(ICommentRepository commentrepository)
+    public CommentService(ICommentRepository commentrepository, IMapper mapper)
     {
         _commentrepository = commentrepository;
+        _mapper = mapper;
     }
 
-    public IEnumerable<Comment> GetComments()
+    public IEnumerable<CommentDto> GetComments()
     {
-        return _commentrepository.Get();
+        var result = _commentrepository.Get();
+        return _mapper.Map<List<CommentDto>>(result);
     }
 
     public string PostComment(Comment comment)

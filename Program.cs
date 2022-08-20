@@ -3,6 +3,7 @@ using publication.Repository;
 using publication.Repository.Implementation;
 using publication.Context;
 using System.Text.Json.Serialization;
+using publication.util;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBaseRepository, BaseRepository>();
 builder.Services.AddScoped<IPublicationRepository , PublicationRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+
+//AutoMapper
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 string mySqlConnection = builder.Configuration.GetConnectionString("connectDeafultMysql");
 builder.Services.AddDbContext<PublicationContext>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));

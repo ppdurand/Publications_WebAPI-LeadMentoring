@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xWV0iJG8X5ZhHYB/CJToZiX9PcaIGkjqHQUgqM355Mieb/x5PKadJ5vao9u6O8DPmPZnh359jfnuJLqOElVBQg==",
+  "dgSpecHash": "DPcNdFGf+GQyWS2W02ctR745Vsf72/mBuLaDVkE/yjuZ4i2/SY+Fug7G8pNQTWW0oS4ttqUs2WRupTT0DrzaGg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kennedy\\Desktop\\Pedro Paulo\\códigos\\C#\\Projetos\\Publications_WebAPI-LeadMentoring\\Publications_WebAPI-LeadMentoring.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Kennedy\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Kennedy\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Kennedy\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Kennedy\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Kennedy\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",
     "C:\\Users\\Kennedy\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.7\\microsoft.entityframeworkcore.abstractions.6.0.7.nupkg.sha512",
     "C:\\Users\\Kennedy\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.7\\microsoft.entityframeworkcore.analyzers.6.0.7.nupkg.sha512",

@@ -1,4 +1,6 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using publication.Dto;
 using publication.Models;
 using publication.Repository;
 using publication.Service;
@@ -11,19 +13,19 @@ public class PublicationController : ControllerBase
 {
     private readonly PublicationService _publicationservice;
 
-    public PublicationController(IPublicationRepository publicationrepository)
+    public PublicationController(IPublicationRepository publicationrepository, IMapper mapper)
     {
-        _publicationservice = new PublicationService(publicationrepository);
+        _publicationservice = new PublicationService(publicationrepository, mapper);
     }
 
     [HttpGet]
-    public IEnumerable<Publication> GetPublication()
+    public IEnumerable<PublicationDto> GetPublication()
     {
         return _publicationservice.GetPublication();
     }
 
     [HttpPost]
-    public string PostPublication([FromBody] Publication publication)
+    public string PostPublication([FromBody] PublicationDto publication)
     {
         return _publicationservice.PostPublication(publication);
     }
@@ -42,7 +44,7 @@ public class PublicationController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public Publication DetailsPublication(int id)
+    public PublicationDetailsDto DetailsPublication(int id)
     {
         return _publicationservice.DetailsPublication(id);
     }

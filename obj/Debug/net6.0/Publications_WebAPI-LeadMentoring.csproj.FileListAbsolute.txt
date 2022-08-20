@@ -33,3 +33,5 @@ C:\Users\Kennedy\Desktop\Pedro Paulo\códigos\C#\Projetos\Publications_WebAPI-Le
 C:\Users\Kennedy\Desktop\Pedro Paulo\códigos\C#\Projetos\Publications_WebAPI-LeadMentoring\obj\Debug\net6.0\Publications_WebAPI-LeadMentoring.pdb
 C:\Users\Kennedy\Desktop\Pedro Paulo\códigos\C#\Projetos\Publications_WebAPI-LeadMentoring\obj\Debug\net6.0\Publications_WebAPI-LeadMentoring.genruntimeconfig.cache
 C:\Users\Kennedy\Desktop\Pedro Paulo\códigos\C#\Projetos\Publications_WebAPI-LeadMentoring\obj\Debug\net6.0\ref\Publications_WebAPI-LeadMentoring.dll
+C:\Users\Kennedy\Desktop\Pedro Paulo\códigos\C#\Projetos\Publications_WebAPI-LeadMentoring\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Kennedy\Desktop\Pedro Paulo\códigos\C#\Projetos\Publications_WebAPI-LeadMentoring\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

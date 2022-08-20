@@ -2,30 +2,35 @@ using Microsoft.AspNetCore.Mvc;
 using publication.Models;
 using publication.Repository.Implementation;
 using publication.Repository;
+using publication.Dto;
+using AutoMapper;
 
 namespace publication.Service;
 
 public class PublicationService 
 {
     private readonly IPublicationRepository _publicationrepository;
+    private readonly IMapper _mapper;
 
-    public PublicationService(IPublicationRepository publicationrepository)
+    public PublicationService(IPublicationRepository publicationrepository, IMapper mapper)
     {
         _publicationrepository = publicationrepository;
+        _mapper = mapper;
     }
 
     //get
 
-    public IEnumerable<Publication> GetPublication()
+    public IEnumerable<PublicationDto> GetPublication()
     {
-        return _publicationrepository.Get();
-    }
+        var result = _publicationrepository.Get();
+        return _mapper.Map<List<PublicationDto>>(result);
+    }   
 
     // post
-
-    public string PostPublication(Publication publication)
+    public string PostPublication(PublicationDto publication)
     {
-        _publicationrepository.Post(publication);
+        var result = _mapper.Map<Publication>(publication);
+        _publicationrepository.Post(result);
         return "Publicação criada";
     }
 
@@ -47,8 +52,9 @@ public class PublicationService
         return "Publicação alterada";
     }
     
-    public Publication DetailsPublication(int id)
+    public PublicationDetailsDto DetailsPublication(int id)
     {
-        return _publicationrepository.GetById(id);
+        var result = _publicationrepository.GetById(id);
+        return _mapper.Map<PublicationDetailsDto>(result);
     }
 }
