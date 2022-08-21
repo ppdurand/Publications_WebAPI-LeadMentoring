@@ -5,6 +5,7 @@ using publication.Service;
 using publication.Models;
 using AutoMapper;
 using publication.Dto;
+using publication.exceptions;
 
 namespace publication.Controllers;
 
@@ -26,9 +27,21 @@ public class CommentController : ControllerBase
     }
 
     [HttpPost]
-    public string CreateComment([FromBody] CommentCreateDto comment)
+    public ActionResult<string> CreateComment([FromBody] CommentCreateDto comment)
     {
-        return _commentservice.PostComment(comment);
+        try
+        {
+            return _commentservice.PostComment(comment);
+     
+        }
+        catch (ErrorException ex)
+        {
+            return StatusCode(ex.StatusCode, ex);
+        }
+        catch(Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Houve um problema na criação do seu comentário, por favor tente mais tarde");
+        }
     }
 
     [HttpDelete("{id:int}")]

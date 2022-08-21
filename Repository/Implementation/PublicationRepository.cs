@@ -23,4 +23,8 @@ public class PublicationRepository : BaseRepository, IPublicationRepository
         return _context.Publication?.Include(x => x.Comments) .FirstOrDefault(pub => pub.Id == id)!;
     }
 
+    public Publication GetByTitle(string title)
+    {
+        return _context.Publication?.FirstOrDefault(t => t.Title == title)!;
+    }
 }

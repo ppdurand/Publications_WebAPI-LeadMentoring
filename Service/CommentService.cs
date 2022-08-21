@@ -1,6 +1,7 @@
 using System.Security.AccessControl;
 using AutoMapper;
 using publication.Dto;
+using publication.exceptions;
 using publication.Models;
 using publication.Repository;
 
@@ -26,6 +27,8 @@ public class CommentService
     //post(Dtaetime Errado)
     public string PostComment(CommentCreateDto comment)
     {
+        Comment commentDb = _commentrepository.GetByMessage(comment.Menssage!);
+        if(commentDb != null) throw new ErrorException((int)StatusCodes.Status400BadRequest, "Este comentário já existe");
         var result = _mapper.Map<Comment>(comment);
         _commentrepository.Post(result);
         return "Comentário Postado";

@@ -4,6 +4,7 @@ using publication.Repository.Implementation;
 using publication.Repository;
 using publication.Dto;
 using AutoMapper;
+using publication.exceptions;
 
 namespace publication.Service;
 
@@ -27,9 +28,11 @@ public class PublicationService
     }   
 
     // post(DateTime errado)
-    public string PostPublication(PublicationCreateDto publication)
+    public string PostPublication(PublicationCreateDto publicationdto)
     {
-        var result = _mapper.Map<Publication>(publication);
+        Publication publicationDb = GetByTitle(publicationdto.Title!);
+        if (publicationDb != null) throw new ErrorException((int)StatusCodes.Status400BadRequest, "Já existe categoria com esse título.");
+        var result = _mapper.Map<Publication>(publicationdto);
         _publicationrepository.Post(result);
         return "Publicação criada";
     }
@@ -57,5 +60,10 @@ public class PublicationService
     {
         var result = _publicationrepository.GetById(id);
         return _mapper.Map<PublicationDetailsDto>(result);
+    }
+
+    public Publication GetByTitle(string title)
+    {
+        return _publicationrepository.GetByTitle(title);
     }
 }

@@ -1,3 +1,4 @@
+using System.Net.Mail;
 using publication.Context;
 using publication.Models;
 
@@ -19,5 +20,10 @@ public class CommentRepository : BaseRepository, ICommentRepository
     public Comment GetById(int id)
     {
         return _context.Comment?.FirstOrDefault(com => com.CommentId == id)!;
+    }
+
+    public Comment GetByMessage(string menssage)
+    {
+        return _context.Comment?.FirstOrDefault(msg => msg.Menssage == menssage)!;
     }
 }

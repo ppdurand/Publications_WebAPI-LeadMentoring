@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using publication.Dto;
+using publication.exceptions;
 using publication.Models;
 using publication.Repository;
 using publication.Service;
@@ -25,9 +26,20 @@ public class PublicationController : ControllerBase
     }
 
     [HttpPost]
-    public string PostPublication([FromBody] PublicationCreateDto publication)
+    public ActionResult<string> PostPublication([FromBody] PublicationCreateDto publication)
     {
-        return _publicationservice.PostPublication(publication);
+        try
+        {
+            return _publicationservice.PostPublication(publication);
+        }
+        catch(ErrorException ex)
+        {
+            return StatusCode(ex.StatusCode, ex); 
+        }
+        catch(Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "Tivemos um problema, tente nvoamente mais tarde");
+        }
     }
 
     [HttpDelete]

@@ -8,4 +8,6 @@ public interface IPublicationRepository : IBaseRepository
 
     Publication GetById(int id);
 
+    Publication GetByTitle(string name);
+
 }
