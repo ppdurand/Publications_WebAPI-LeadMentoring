@@ -4,4 +4,5 @@ public class PublicationCreateDto
 {
     public string? Title { get; set; }
     public string? Message { get; set; }
+    public int MaxComments { get; set; }
 }

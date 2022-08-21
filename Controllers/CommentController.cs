@@ -20,13 +20,13 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<CommentDto> ListComment()
+    public IEnumerable<CommentDetailsDto> ListComment()
     {
         return _commentservice.GetComments();
     }
 
     [HttpPost]
-    public string CreateComment([FromBody] Comment comment)
+    public string CreateComment([FromBody] CommentCreateDto comment)
     {
         return _commentservice.PostComment(comment);
     }

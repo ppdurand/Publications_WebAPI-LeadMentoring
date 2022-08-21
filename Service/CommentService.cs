@@ -17,15 +17,17 @@ public class CommentService
         _mapper = mapper;
     }
 
-    public IEnumerable<CommentDto> GetComments()
+    public IEnumerable<CommentDetailsDto> GetComments()
     {
         var result = _commentrepository.Get();
-        return _mapper.Map<List<CommentDto>>(result);
+        return _mapper.Map<List<CommentDetailsDto>>(result);
     }
 
-    public string PostComment(Comment comment)
+    //post(Dtaetime Errado)
+    public string PostComment(CommentCreateDto comment)
     {
-        _commentrepository.Post(comment);
+        var result = _mapper.Map<Comment>(comment);
+        _commentrepository.Post(result);
         return "Comentário Postado";
     }
 
@@ -37,6 +39,7 @@ public class CommentService
         return "Comentário Deletado";
     }
 
+    //put(Resolver o DTO do update)
     public string UpdateComment(int id, Comment comment)
     {
         if(id != comment.CommentId) return "id inválido";

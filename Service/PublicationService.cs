@@ -26,8 +26,8 @@ public class PublicationService
         return _mapper.Map<List<PublicationDto>>(result);
     }   
 
-    // post
-    public string PostPublication(PublicationDto publication)
+    // post(DateTime errado)
+    public string PostPublication(PublicationCreateDto publication)
     {
         var result = _mapper.Map<Publication>(publication);
         _publicationrepository.Post(result);
@@ -44,10 +44,11 @@ public class PublicationService
         return "Publicação deletada";
     }
 
-    //update
+    //update (Precisa resolver a questão do DTO do upadte)
 
-    public string UpdatePublication(Publication publication)
-    {
+    public string UpdatePublication(int id, Publication publication)
+    {   
+        if(id != publication.Id) return "Id não encontrada";
         _publicationrepository.Put(publication);
         return "Publicação alterada";
     }

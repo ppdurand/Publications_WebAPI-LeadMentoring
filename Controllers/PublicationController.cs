@@ -25,7 +25,7 @@ public class PublicationController : ControllerBase
     }
 
     [HttpPost]
-    public string PostPublication([FromBody] PublicationDto publication)
+    public string PostPublication([FromBody] PublicationCreateDto publication)
     {
         return _publicationservice.PostPublication(publication);
     }
@@ -39,8 +39,7 @@ public class PublicationController : ControllerBase
     [HttpPut("{id:int}")]
     public string UpdatePublication(int id, [FromBody] Publication publication)
     {
-        if(id != publication.Id) return "Id não encontrada";
-        return _publicationservice.UpdatePublication(publication);
+        return _publicationservice.UpdatePublication(id, publication);
     }
 
     [HttpGet("{id:int}")]

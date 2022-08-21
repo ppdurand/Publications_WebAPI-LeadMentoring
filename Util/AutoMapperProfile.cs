@@ -12,6 +12,8 @@ public class AutoMapperProfile : Profile
         CreateMap<Publication, PublicationCreateDto>().ReverseMap();
         CreateMap<Publication, PublicationDetailsDto>().ReverseMap();
         CreateMap<Comment, CommentDto>().ReverseMap();
+        CreateMap<Comment, CommentDetailsDto>().ReverseMap();
+        CreateMap<Comment, CommentCreateDto>().ReverseMap();
 
     }
 }
