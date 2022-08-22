@@ -4,10 +4,10 @@ namespace publication.Repository;
 
 public interface IPublicationRepository : IBaseRepository
 {   
-    IEnumerable<Publication> Get();
+    Task<IEnumerable<Publication>> Get();
 
-    Publication GetById(int id);
+    Task<Publication> GetById(int id);
 
-    Publication GetByTitle(string name);
+    Task<Publication> GetByTitle(string title);
 
 }

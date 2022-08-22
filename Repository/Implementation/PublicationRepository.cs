@@ -13,18 +13,18 @@ public class PublicationRepository : BaseRepository, IPublicationRepository
         _context = context;
     }
 
-    public IEnumerable<Publication> Get()
+    public async Task<IEnumerable<Publication>> Get()
     {
-        return _context.Publication?.ToList()!;
+        return await _context.Publication?.ToListAsync()!;
     }
 
-    public Publication GetById(int id)
+    public async Task<Publication> GetById(int id)
     {
-        return _context.Publication?.Include(x => x.Comments) .FirstOrDefault(pub => pub.Id == id)!;
+        return await _context.Publication?.Include(x => x.Comments).FirstOrDefaultAsync(pub => pub.Id == id)!;
     }
 
-    public Publication GetByTitle(string title)
+    public async Task<Publication> GetByTitle(string title)
     {
-        return _context.Publication?.FirstOrDefault(t => t.Title == title)!;
+        return await _context.Publication?.FirstOrDefaultAsync(t => t.Title == title)!;
     }
 }

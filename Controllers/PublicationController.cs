@@ -20,21 +20,21 @@ public class PublicationController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<PublicationDto> GetPublication()
+    public async Task<IEnumerable<PublicationDto>> GetPublication()
     {
-        return _publicationservice.GetPublication();
+        return await _publicationservice.GetPublication();
     }
 
     [HttpPost]
-    public ActionResult<string> PostPublication([FromBody] PublicationCreateDto publication)
+    public async Task<ActionResult<string>> PostPublication([FromBody] PublicationCreateDto publication)
     {
         try
         {
-            return _publicationservice.PostPublication(publication);
+            return await _publicationservice.PostPublication(publication);
         }
         catch(ErrorException ex)
         {
-            return StatusCode(ex.StatusCode, ex); 
+            return StatusCode(ex.StatusCode, ex.Message); 
         }
         catch(Exception)
         {
@@ -43,20 +43,21 @@ public class PublicationController : ControllerBase
     }
 
     [HttpDelete]
-    public string DeletePublication([FromBody] int id)
+    public async Task<string> DeletePublication([FromBody] int id)
     {
-        return _publicationservice.DeletePublication(id);
+        return await _publicationservice.DeletePublication(id);
     }
 
     [HttpPut("{id:int}")]
-    public string UpdatePublication(int id, [FromBody] Publication publication)
+    public  ActionResult<string> UpdatePublication(int id, [FromBody] PublicationDto publication)
     {
         return _publicationservice.UpdatePublication(id, publication);
     }
 
     [HttpGet("{id:int}")]
-    public PublicationDetailsDto DetailsPublication(int id)
+    public async Task<ActionResult<PublicationDetailsDto>> DetailsPublicationAsync(int id)
     {
-        return _publicationservice.DetailsPublication(id);
+        var result = await _publicationservice.DetailsPublication(id);
+        return new OkObjectResult(result);
     }
 }

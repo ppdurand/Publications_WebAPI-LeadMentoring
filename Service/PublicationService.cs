@@ -21,16 +21,15 @@ public class PublicationService
 
     //get
 
-    public IEnumerable<PublicationDto> GetPublication()
+    public async Task<IEnumerable<PublicationDto>> GetPublication()
     {
-        var result = _publicationrepository.Get();
-        return _mapper.Map<List<PublicationDto>>(result);
+        return _mapper.Map<List<PublicationDto>>(await _publicationrepository.Get());
     }   
 
     // post(DateTime errado)
-    public string PostPublication(PublicationCreateDto publicationdto)
+    public async Task<string> PostPublication(PublicationCreateDto publicationdto)
     {
-        Publication publicationDb = GetByTitle(publicationdto.Title!);
+        Publication publicationDb = await GetByTitle(publicationdto.Title!);
         if (publicationDb != null) throw new ErrorException((int)StatusCodes.Status400BadRequest, "Já existe categoria com esse título.");
         var result = _mapper.Map<Publication>(publicationdto);
         _publicationrepository.Post(result);
@@ -39,31 +38,31 @@ public class PublicationService
 
     //delete
 
-    public string DeletePublication(int id)
+    public async Task<string> DeletePublication(int id)
     {
-        Publication publication = _publicationrepository.GetById(id);
+        Publication publication = await _publicationrepository.GetById(id);
         if (publication == null) return "Id inválido";
         _publicationrepository.Delete(publication);
         return "Publicação deletada";
     }
 
-    //update (Precisa resolver a questão do DTO do upadte)
+    //update 
 
-    public string UpdatePublication(int id, Publication publication)
+    public string UpdatePublication(int id, PublicationDto publication)
     {   
         if(id != publication.Id) return "Id não encontrada";
-        _publicationrepository.Put(publication);
+        Publication publicationModel = _mapper.Map<Publication>(publication);
+        _publicationrepository.Put(publicationModel);
         return "Publicação alterada";
     }
     
-    public PublicationDetailsDto DetailsPublication(int id)
+    public async Task<PublicationDetailsDto> DetailsPublication(int id)
     {
-        var result = _publicationrepository.GetById(id);
-        return _mapper.Map<PublicationDetailsDto>(result);
+        return _mapper.Map<PublicationDetailsDto>(await _publicationrepository.GetById(id));
     }
 
-    public Publication GetByTitle(string title)
+    public async Task<Publication> GetByTitle(string title)
     {
-        return _publicationrepository.GetByTitle(title);
+        return await _publicationrepository.GetByTitle(title);
     }
 }

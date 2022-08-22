@@ -8,5 +8,5 @@ public class PublicationDetailsDto
     public string? Title { get; set; }
     public string? Message { get; set; }
     public DateTime CreationDate { get; set; }
-    public List<CommentDto> Comments { get; set; }  
+    public List<CommentDto>? Comments { get; set; }  
 }
