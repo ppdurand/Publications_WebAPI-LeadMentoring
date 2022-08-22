@@ -42,8 +42,8 @@ public class PublicationController : ControllerBase
         }
     }
 
-    [HttpDelete]
-    public async Task<string> DeletePublication([FromBody] int id)
+    [HttpDelete("{id:int}")]
+    public async Task<string> DeletePublication(int id)
     {
         return await _publicationservice.DeletePublication(id);
     }

@@ -30,7 +30,7 @@ public class PublicationService
     public async Task<string> PostPublication(PublicationCreateDto publicationdto)
     {
         Publication publicationDb = await GetByTitle(publicationdto.Title!);
-        if (publicationDb != null) throw new ErrorException((int)StatusCodes.Status400BadRequest, "Já existe categoria com esse título.");
+        if (publicationDb != null) throw new ErrorException((int)StatusCodes.Status400BadRequest, "Já existe publicação com esse título.");
         var result = _mapper.Map<Publication>(publicationdto);
         _publicationrepository.Post(result);
         return "Publicação criada";
