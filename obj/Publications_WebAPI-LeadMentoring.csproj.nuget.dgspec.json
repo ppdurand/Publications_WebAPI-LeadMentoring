@@ -57,6 +57,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.2.19, )"
+            },
+            "X.PagedList": {
+              "target": "Package",
+              "version": "[8.4.3, )"
             }
           },
           "imports": [

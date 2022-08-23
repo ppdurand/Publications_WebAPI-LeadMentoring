@@ -5,6 +5,7 @@ using publication.exceptions;
 using publication.Models;
 using publication.Repository;
 using publication.Service;
+using publication.Enum;
 
 namespace publication.Controllers;
 
@@ -20,9 +21,15 @@ public class PublicationController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IEnumerable<PublicationDto>> GetPublication()
+    public IEnumerable<PublicationDto> GetPublication(
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 5,
+        [FromQuery] string? search = "",
+        [FromQuery] OrderByColumnPublicationEnum orderByColumn = OrderByColumnPublicationEnum.Id,
+        [FromQuery] OrderByTypeEnum orderByType = OrderByTypeEnum.ASC
+    )
     {
-        return await _publicationservice.GetPublication();
+        return _publicationservice.GetPublication(pageNumber, pageSize, search, orderByColumn, orderByType);
     }
 
     [HttpPost]

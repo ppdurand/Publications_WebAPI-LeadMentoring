@@ -5,6 +5,8 @@ using publication.Repository;
 using publication.Dto;
 using AutoMapper;
 using publication.exceptions;
+using publication.Enum;
+using System.Dynamic;
 
 namespace publication.Service;
 
@@ -21,9 +23,26 @@ public class PublicationService
 
     //get
 
-    public async Task<IEnumerable<PublicationDto>> GetPublication()
+    public IEnumerable<PublicationDto> GetPublication(
+        int pageNumber = 1,
+        int pageSize = 5,
+        string? search = "",
+        OrderByColumnPublicationEnum orderByColumn = OrderByColumnPublicationEnum.Id,
+        OrderByTypeEnum orderByType = OrderByTypeEnum.ASC)
     {
-        return _mapper.Map<List<PublicationDto>>(await _publicationrepository.Get());
+        var listPublication = _publicationrepository.Get(pageNumber, pageSize, search, orderByColumn, orderByType);
+
+        dynamic result = new ExpandoObject();
+        result.currentPage = pageNumber;
+        result.pageSize = pageSize;
+        result.totalPages = Math.Ceiling((double)listPublication.TotalItemCount / pageSize);
+        result.totalItems = listPublication.TotalItemCount;
+        result.search = search;
+        result.orderByColumn = orderByColumn;
+        result.orderByType = orderByType;
+        result.data = _mapper.Map<List<PublicationDto>>(listPublication);
+
+        return _mapper.Map<List<PublicationDto>>(listPublication);
     }   
 
     // post(DateTime errado)
